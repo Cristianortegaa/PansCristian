@@ -1,0 +1,629 @@
+/* =========================
+   RESET Y BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background: #f4f3ef;
+  color: #4b4b4b;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: #a3c1a8;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* necesario para posicionar el menú en móvil */
+}
+
+.navbar .logo img {
+  height: 50px;
+  border-radius: 10px;
+}
+
+/* 🌐 MENÚ DESKTOP */
+.navbar .menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .menu li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #cde3d1; 
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: #cde3d1;
+}
+
+.navbar .menu li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* 🍔 BOTÓN HAMBURGUESA */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* ✖️ ANIMACIÓN A "X" */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* 📱 MENÚ RESPONSIVE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #a3c1a8; /* mismo color que navbar */
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .menu.active {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .menu li a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .menu li:last-child a {
+    border-bottom: none;
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  background: linear-gradient(135deg, #d9e8d9, #f0ece3);
+  padding: 100px 20px 60px;
+  color: #4b4b4b;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #7da27d;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .hero img {
+    max-width: 90%;
+  }
+}
+
+.btn-gradient {
+  background: linear-gradient(45deg, #7da27d, #d9c5a1);
+  padding: 12px 25px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+section {
+  padding: 80px 20px;
+}
+
+section {
+  scroll-margin-top: 50px;
+}
+
+section h2 {
+  scroll-margin-top: 120px;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #7da27d;
+}
+
+.lead {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background: #f0ece3;
+  padding: 1.5rem;
+  border-radius: 18px;
+  text-align: center;
+  width: 230px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card i {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  color: #7da27d;
+  transition: color 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #5c4a3e;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #5a5a5a;
+  line-height: 1.3;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card:hover i {
+  color: #a3c99c;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+.galeria-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.galeria-grid img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   TARIFAS
+========================= */
+/* 💰 Estilo base para escritorio */
+table {
+  margin: 2rem auto;
+  width: 90%;
+  border-collapse: collapse;
+  background: #f0ece3;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  font-size: 1rem;
+}
+
+thead {
+  background: #7da27d;
+  color: #fff;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  color: #5a5a5a;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+tbody tr:nth-child(even) {
+  background: #e3e0d6;
+}
+
+/* 📱 Móvil: convertir tabla en tarjetas verticales */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* ocultamos encabezado */
+  }
+
+  tbody tr {
+    background: #f0ece3;
+    margin-bottom: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 1rem;
+  }
+
+  tbody tr td {
+    padding: 0.5rem 0;
+    text-align: left;
+    position: relative;
+  }
+
+  tbody tr td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #7da27d;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* =========================
+   CALENDARIO
+========================= */
+.calendar {
+  margin: 2rem auto;
+  max-width: 700px;
+  width: 100%;
+  background: #f0ece3;
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  color: #7da27d;
+  font-size: 1.5rem;
+}
+
+.calendar-header button {
+  background: #7da27d;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.calendar-header button:hover {
+  background: #a3c1a8;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-grid .day, .calendar-grid .day-name {
+  padding: 12px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.calendar-grid .day:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.day-name {
+  font-weight: 700;
+  color: #5c4a3e;
+}
+
+.day.available { background: #a3c1a8; color: #fff; }
+.day.half { background: #d9cbb5; color: #4b4b4b; }
+.day.full { background: #c94c4c; color: #fff; }
+.day.selected { outline: 3px solid #7da27d; font-weight: 800; }
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0 3rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.legend-box.available { background: #a3c1a8; }
+.legend-box.half { background: #d5a250; }
+.legend-box.full { background: #c94c4c; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .calendar-header h3 { font-size: 1.3rem; }
+  .calendar-header button { padding: 6px 10px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .calendar-grid .day, .calendar-grid .day-name {
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/* =========================
+   CONTACTO
+========================= */
+.contacto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contacto-grid .info {
+  max-width: 400px;
+}
+
+.contacto-grid .info h4 {
+  margin-top: 1rem;
+  color: #7da27d;
+}
+
+.contacto-grid a {
+  color: #5a5a5a;
+  text-decoration: none;
+}
+
+.contacto-grid a:hover {
+  text-decoration: underline;
+}
+
+.contacto-grid .mapa {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contacto-grid .mapa iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  border: 2px solid #7da27d;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #7da27d;
+  color: #fff;
+  padding: 2rem 20px;
+  text-align: center;
+}
+
+footer .social a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+footer .social a:hover {
+  color: #d9cbb5;
+}
+
+.instagram {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  justify-content: center;
+}
+
+.instagram img {
+  height: 20px;
+}
+
+.instagram a {
+  font-size: 15px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =========================
+   MEDIA QUERIES
+========================= */
+@media(max-width: 1024px){
+  .servicios-grid, .galeria-grid, .contacto-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.1rem; }
+}
+
+@media(max-width: 768px){
+  .navbar .menu { flex-direction: column; gap: 1rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  .contacto-grid .mapa iframe { height: 250px; }
+  .card { width: 90%; }
+  .galeria-grid img { max-width: 90%; }
+}
+
+@media(max-width: 480px){
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 0.95rem; }
+  .navbar .menu { gap: 0.7rem; }
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+.animado {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animado.visible { opacity: 1; transform: none; }
+
+.fade-up.visible { animation: fadeUp 1.5s ease forwards; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+
+.zoom-in.visible { animation: zoomIn 0.8s ease forwards; }
+@keyframes zoomIn { from {opacity:0; transform:scale(0.8);} to{opacity:1; transform:scale(1);} }
+
+.slide-left.visible { animation: slideLeft 0.8s ease forwards; }
+@keyframes slideLeft { from {opacity:0; transform:translateX(-50px);} to{opacity:1; transform:translateX(0);} }
+
+.slide-right.visible { animation: slideRight 0.8s ease forwards; }
+@keyframes slideRight { from {opacity:0; transform:translateX(50px);} to{opacity:1; transform:translateX(0);} }
+
+.pop-in.visible { animation: popIn 0.6s ease-out forwards; }
+@keyframes popIn { from {opacity:0; transform:scale(0.6);} to {opacity:1; transform:scale(1);} }
