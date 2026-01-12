@@ -1,0 +1,94 @@
+/* Importar fuentes e iconos */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+
+/* --- ESTILOS GENERALES --- */
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #fcf9f5; /* Color crema suave (Harina) */
+  font-family: 'Lato', sans-serif;
+  color: #4e342e; /* Marrón café */
+}
+
+/* Títulos elegantes */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #d35400; 
+}
+
+.card-custom {
+  border: none;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(211, 84, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-control, .form-select {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  background-color: #fff;
+  height: 3.5rem; 
+  transition: all 0.3s;
+}
+
+.form-floating > .form-select {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
+  line-height: 1.25;
+}
+
+.form-floating > .form-control {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #d35400;
+  box-shadow: 0 0 0 4px rgba(211, 84, 0, 0.1);
+  outline: none;
+}
+
+/* --- TABLA --- */
+.table-custom thead {
+  background-color: #f3e5dc; /* Color café con leche */
+}
+
+.table-custom th {
+  color: #d35400;
+  font-weight: bold;
+  border: none;
+}
+
+.table-custom td {
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+
+/* --- BOTONES --- */
+.btn {
+  border-radius: 50px; /* Botones redondos */
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.btn-success {
+  background-color: #d35400;
+  border-color: #d35400;
+}
+
+.btn-success:hover {
+  background-color: #a04000;
+}
+
+/* Panel de Total */
+.total-panel {
+  background: #4e342e; /* Chocolate oscuro */
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

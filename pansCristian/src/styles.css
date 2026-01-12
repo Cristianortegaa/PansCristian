@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Importamos las fuentes aquí para que estén disponibles en toda la app */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Russo+One&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+
+/* VARIABLES GLOBALES */
+:root {
+    --lightning-yellow: #FFD700;
+    --electric-blue: #00BFFF;
+    --fire-orange: #FF4500;
+    --dark-stadium: #0a0a2a;
+    --panel-bg: rgba(20, 20, 60, 0.9);
+}
+
+/* ESTILOS DEL CUERPO (BODY) - Esto arreglará el fondo blanco */
+body {
+    margin: 0;
+    /* Fondo Degradado Oscuro */
+    background: linear-gradient(135deg, var(--dark-stadium) 0%, #000000 100%);
+    background-attachment: fixed; /* Para que el fondo no se mueva al hacer scroll */
+    color: #fff;
+    font-family: 'Chakra Petch', sans-serif;
+    min-height: 100vh;
+    
+    /* Patrón de red cibernética */
+    background-image: 
+        linear-gradient(rgba(0, 191, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 191, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
